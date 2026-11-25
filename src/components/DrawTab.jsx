@@ -96,11 +96,15 @@ export default function DrawTab() {
       <ButtonGroup label="Colour mode" options={MODE_OPTIONS} value={mode} onChange={(m) => { setMode(m); load('Smiley', m) }} />
 
       <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-        {mode === MODES.BW && (
-          <p className="text-slate-700">
-            Click a cell to switch it: <b>0 = white</b>, <b>1 = black</b>. Drag to paint.
-          </p>
-        )}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-semibold text-slate-600 mr-1">Presets</span>
+          {PRESET_NAMES.map((name) => (
+            <button key={name} type="button" onClick={() => load(name)}
+              className="px-4 py-2 rounded-lg border-2 border-slate-300 bg-white font-medium hover:border-indigo-400">
+              {name}
+            </button>
+          ))}
+        </div>
         {mode === MODES.COLOUR && (
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-semibold text-slate-700 mr-1">Brush colour</span>
@@ -115,15 +119,6 @@ export default function DrawTab() {
             </span>
           </div>
         )}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="font-semibold text-slate-600 mr-1">Presets</span>
-          {PRESET_NAMES.map((name) => (
-            <button key={name} type="button" onClick={() => load(name)}
-              className="px-4 py-2 rounded-lg border-2 border-slate-300 bg-white font-medium hover:border-indigo-400">
-              {name}
-            </button>
-          ))}
-        </div>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2 items-start">
