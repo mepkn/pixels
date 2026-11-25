@@ -142,7 +142,7 @@ export default function DrawTab() {
               const where = `Row ${Math.floor(i / SIZE) + 1}, column ${(i % SIZE) + 1}`
               return mode === MODES.COLOUR ? (
                 <div key={i} className="flex min-h-0 min-w-0 flex-col gap-px">
-                  {CHANNELS.map((c, ch) => input(i, texts[i][ch], `${where}, ${c}`, ch, 'min-h-0 flex-1 text-[0.6rem] sm:text-sm'))}
+                  {CHANNELS.map((c, ch) => input(i, texts[i][ch], `${where}, ${c}`, ch, 'min-h-0 flex-1 text-[0.45rem] sm:text-[0.65rem]'))}
                 </div>
               ) : (
                 <div key={i} className="min-h-0 min-w-0">
