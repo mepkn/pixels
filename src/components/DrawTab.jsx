@@ -121,11 +121,17 @@ export default function DrawTab() {
         )}
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2 items-start">
+      <div className="grid gap-4 lg:grid-cols-[1fr_auto_1fr] items-start">
         <div>
           <div className="mx-auto w-full max-w-[520px]">
             <PixelGrid size={SIZE} mode={mode} cells={cells} onPaintStart={paintStart} onPaint={paint} />
           </div>
+        </div>
+
+        <div className="flex justify-center py-6 lg:py-0 lg:self-stretch lg:items-center text-indigo-500" aria-hidden="true">
+          <svg viewBox="0 0 64 24" className="h-8 w-20 rotate-90 lg:rotate-0" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 12h56M48 3l11 9-11 9" />
+          </svg>
         </div>
 
         <div>
@@ -146,13 +152,13 @@ export default function DrawTab() {
               )
             })}
           </div>
-          {invalidCount > 0 && (
-            <p className="mt-3 font-semibold text-red-600">
-              {invalidCount} invalid {invalidCount === 1 ? 'value is' : 'values are'} ignored.
-            </p>
-          )}
         </div>
       </div>
+      {invalidCount > 0 && (
+        <p className="text-center font-semibold text-red-600">
+          {invalidCount} invalid {invalidCount === 1 ? 'value is' : 'values are'} ignored.
+        </p>
+      )}
 
       <p className="text-xl text-center font-medium" aria-live="polite">
         This picture is {SIZE} × {SIZE} = {pixels} pixels. The computer stores{' '}
